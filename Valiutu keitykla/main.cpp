@@ -71,7 +71,7 @@ int main() {
                 pavadinimas = "INR ";
                 cout << " Iveskite suma kuria noretumet parduoti " << pavadinimas << endl;
                 cin >> valiutos_kiekis;
-                rezultatas = valiutos_kiekis * INR_Parduoti ;
+                rezultatas = valiutos_kiekis / INR_Parduoti ;
             }
             else {
                 cout << "klaida" << endl;
