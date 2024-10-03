@@ -18,81 +18,39 @@ int main() {
     const double INR_Bendras = 88.8260;
     const double INR_Pirkti = 85.2614;
     const double INR_Parduoti = 92.8334;
-    {
+    int meniu_opcijos = 1;
+    while (meniu_opcijos != 4) {
         cout << " 1. Valiutu kurso palyginimas "<<endl;
         cout << " 2. Valiutos pardavimas "<<endl;
         cout << " 3. Valiutos pirkimas "<<endl;
         cout << " 4. Iseiti "<<endl;
         cout << " Pasirinkite dominancia opcija "<<endl;
 
-        int meniu_opcijos;
         cin >> meniu_opcijos;
 
         switch(meniu_opcijos) {
             case 1:
-                cout << " Kaip keisite valiuta? " << endl;
-            cout << " 1. EUR -> kita valiuta " << endl;
-            cout << " 2. Kita valiuta -> EUR " << endl;
-            int opcijos_keitimas;
+                cout  << " Pasirinkite Valiuta " << endl;
+            cout << " 1. GBP " << endl;
+            cout << " 2. USD " << endl;
+            cout << " 3. INR " << endl;
             int valiuta;
-            cin >> opcijos_keitimas;
-            if (opcijos_keitimas == 1) {
-                cout  << " Pasirinkite Valiuta " << endl;
-                cout << " 1. GBP " << endl;
-                cout << " 2. USD " << endl;
-                cout << " 3. INR " << endl;
-                int valiuta;
-                cin >> valiuta;
-                cout << " Iveskite suma(EUR) " << endl;
-                cin >> valiutos_kiekis;
-                if (valiuta == 1) {
-                    rezultatas = GBP_Bendras * valiutos_kiekis;
-                    pavadinimas = "GBP";
-                } else if (valiuta == 2) {
-                    rezultatas = USD_Bendras * valiutos_kiekis;
-                    pavadinimas = "USD";
-                } else {
-                    rezultatas = INR_Bendras * valiutos_kiekis;
-                    pavadinimas = "INR";
-                }
-                cout << fixed << setprecision(2) << valiutos_kiekis << " EUR " << setprecision(2) << rezultatas << pavadinimas << endl;
-            }else if(valiuta ==3)  {
-                cout  << " Pasirinkite Valiuta " << endl;
-                cout << " 1. GBP " << endl;
-                cout << " 2. USD " << endl;
-                cout << " 3. INR " << endl;
-                int valiuta;
-                cin >> valiuta;
-                string valiutos_pavadinimas;
-                if (valiuta == 1) {
-                    pavadinimas = "GBP ";
-
-                } else if (valiuta == 2) {
-                    pavadinimas = "USD ";
-
-                } else if (valiuta==3){
-                    pavadinimas = "INR ";
-                }
-                cout << " Iveskite suma " << pavadinimas << endl;
-                double valiutos_kiekis;
-                cin >> valiutos_kiekis;
-
-                if (valiuta == 1) {
-                    rezultatas = valiutos_kiekis / GBP_Bendras;
-                } else if (valiuta ==2) {
-                    rezultatas = valiutos_kiekis / USD_Bendras;
-                } else if (valiuta==3){
-                    rezultatas = valiutos_kiekis / INR_Bendras;
-                }
-                cout << fixed << setprecision(2) << valiutos_kiekis << " " << pavadinimas
-                << fixed << setprecision(2) << rezultatas << " EUR " << endl;
+            cin >> valiuta;
+            cout << " Iveskite suma(EUR) " << endl;
+            cin >> valiutos_kiekis;
+            if (valiuta == 1) {
+                rezultatas = GBP_Bendras * valiutos_kiekis;
+                pavadinimas = "GBP";
+            } else if (valiuta == 2) {
+                rezultatas = USD_Bendras * valiutos_kiekis;
+                pavadinimas = "USD";
+            } else {
+                rezultatas = INR_Bendras * valiutos_kiekis;
+                pavadinimas = "INR";
             }
-            else {
-                cout << "klaida" << endl;
-                break;
-            }
+            cout << fixed << setprecision(2) << valiutos_kiekis << " EUR " << setprecision(2) << rezultatas << pavadinimas << endl;
             if(valiuta<=3)
-            break;
+                break;
             case 2:
                 cout << " pasirinkite kokia valiuta noretumet parduoti " << endl;
             cout << " 1. GBP " << endl;
@@ -113,14 +71,14 @@ int main() {
                 pavadinimas = "INR ";
                 cout << " Iveskite suma kuria noretumet parduoti " << pavadinimas << endl;
                 cin >> valiutos_kiekis;
-                rezultatas = valiutos_kiekis / INR_Parduoti ;
+                rezultatas = valiutos_kiekis * INR_Parduoti ;
             }
             else {
                 cout << "klaida" << endl;
                 break;
             }
             if(valiuta<=3)
-            cout << " pardavete: " << fixed << setprecision(2) << valiutos_kiekis << " " << pavadinimas << "uz " << rezultatas << " EUR "<< endl;
+                cout << " pardavete: " << fixed << setprecision(2) << valiutos_kiekis << " " << pavadinimas << "uz " << rezultatas << " EUR "<< endl;
             break;
             case 3:
                 cout << " pasirinkite kokia valiuta noretumet isigyti " << endl;
@@ -132,25 +90,25 @@ int main() {
                 pavadinimas = "GBP";
                 cout << " Iveskite suma kuria noretumet isigyti " << pavadinimas << endl;
                 cin >> valiutos_kiekis;
-                rezultatas = GBP_Pirkti * valiutos_kiekis;
+                rezultatas = valiutos_kiekis /GBP_Pirkti ;
             } else if (valiuta == 2) {
                 pavadinimas = "USD";
                 cout << " Iveskite suma kuria noretumet isigyti " << pavadinimas << endl;
                 cin >> valiutos_kiekis;
-                rezultatas = USD_Pirkti * valiutos_kiekis;
+                rezultatas = valiutos_kiekis /USD_Pirkti ;
             }
             else if(valiuta ==3) {
                 pavadinimas ="INR";
                 cout << " Iveskite suma kuria noretumet isigyti " << pavadinimas << endl;
                 cin >> valiutos_kiekis;
-                rezultatas = INR_Pirkti * valiutos_kiekis;
+                rezultatas = valiutos_kiekis /INR_Pirkti ;
             }
             else {
                 cout << "klaida" << endl;
                 break;
             }
             if(valiuta<=3)
-            cout << " Isigyjote: "<< fixed << setprecision(2) << rezultatas << " " << pavadinimas << " uz " << fixed << setprecision(2) << valiutos_kiekis << " EUR " << endl;
+                cout << " Isigyjote: "<< fixed << setprecision(2) << valiutos_kiekis << " " << pavadinimas << " uz " << fixed << setprecision(2) << rezultatas  << " EUR " << endl;
             break;
             default:
                 cout << " Nera tokio pasirinkimo. Iveskite is naujo "<< endl;
@@ -159,6 +117,6 @@ int main() {
                 cout << " Jus isejote is programos " << endl;
             break;
         }
-        return 0;
     }
+        return 0;
 }
