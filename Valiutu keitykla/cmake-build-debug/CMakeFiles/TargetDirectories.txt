@@ -1,0 +1,3 @@
+C:/Users/s056908/Documents/StrukturinisProgr/Valiutu keitykla/cmake-build-debug/CMakeFiles/Valiutu_keitykla.dir
+C:/Users/s056908/Documents/StrukturinisProgr/Valiutu keitykla/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/s056908/Documents/StrukturinisProgr/Valiutu keitykla/cmake-build-debug/CMakeFiles/rebuild_cache.dir
