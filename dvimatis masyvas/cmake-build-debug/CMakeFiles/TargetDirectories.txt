@@ -1,0 +1,3 @@
+C:/Users/s056908/Documents/strukturinis2/dvimatis masyvas/cmake-build-debug/CMakeFiles/dvimatis_masyvas.dir
+C:/Users/s056908/Documents/strukturinis2/dvimatis masyvas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/s056908/Documents/strukturinis2/dvimatis masyvas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
