@@ -5,26 +5,46 @@
 using namespace std;
 
 string vigenereEncrypt(const string& text, const string& key) {
-    string sypheredText = "";
+    string encryptedText = "";
     int n = 26;
 
     int KeyIndex = 0;
     for(int i= 0; i<text.length(); i++){
         char currentLetter = toupper(text[i]);
         if(currentLetter < 'A' || currentLetter>'Z'){
-            sypheredText += currentLetter;
+            encryptedText += currentLetter;
             continue;
         }
             int m = currentLetter - 'A';
             char KeyChar = toupper(key[KeyIndex % key.length()]);
             int k = KeyChar - 'A';
             int c =(m+k) % n;
-            sypheredText += 'A' + c;
+            encryptedText += 'A' + c;
             KeyIndex++;
         }
-        return sypheredText;
+        return encryptedText;
 
+}
+string vigenereDecrypt(const string& encryptedText, const string& key) {
+    string decryptedText = "";
+    int n = 26;
+
+    int raktoIndeksas = 0;
+    for (int i = 0; i < encryptedText.length(); i++) {
+        char currentLetter = toupper(encryptedText[i]);
+        if (currentLetter < 'A' || currentLetter > 'Z') {
+        }
+
+        int c = currentLetter - 'A';
+        char raktasChar = toupper(key[raktoIndeksas % key.length()]);
+        int k = raktasChar - 'A';
+        int m = (c - k + n) % n;
+
+        decryptedText += 'A' + m;
+        raktoIndeksas++;
+    }
+    return decryptedText;
 }
 
     return 0;
-}
+
