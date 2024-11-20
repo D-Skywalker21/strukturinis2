@@ -46,5 +46,24 @@ string vigenereDecrypt(const string& encryptedText, const string& key) {
     return decryptedText;
 }
 
-    return 0;
 
+string vigenereEncryptAscii(const string& text, const string& key){
+    string encryptedText = "";
+    int keyIndex = 0;
+
+    for (int i = 0; i < text.length(); i++) {
+        char currentLetter = text[i];
+
+        int m = static_cast<int>(currentLetter);
+        int k = static_cast<int>(key[keyIndex % key.length()]);
+        int c = (m + k) % 256;
+
+        encryptedText += static_cast<char>(c);
+        keyIndex++;
+    }
+
+    return encryptedText;
+}
+
+    return 0;
+}
