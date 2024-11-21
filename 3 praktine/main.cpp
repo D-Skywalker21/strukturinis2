@@ -29,7 +29,7 @@ string vigenereDecrypt(const string& encryptedText, const string& key) {
     string decryptedText = "";
     int n = 26;
 
-    int raktoIndeksas = 0;
+    int keyIndex = 0;
     for (int i = 0; i < encryptedText.length(); i++) {
         char currentLetter = toupper(encryptedText[i]);
         if (currentLetter < 'A' || currentLetter > 'Z') {
@@ -37,12 +37,12 @@ string vigenereDecrypt(const string& encryptedText, const string& key) {
         }
 
         int c = currentLetter - 'A';
-        char raktasChar = toupper(key[raktoIndeksas % key.length()]);
+        char raktasChar = toupper(key[keyIndex % key.length()]);
         int k = raktasChar - 'A';
         int m = (c - k + n) % n;
 
         decryptedText += 'A' + m;
-        raktoIndeksas++;
+        keyIndex++;
     }
     return decryptedText;
 }
